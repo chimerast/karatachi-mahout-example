@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.karatachi</groupId>
+  <artifactId>karatachi-mahout-example</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <encoding>UTF-8</encoding>
+    <scala.version>2.9.1</scala.version>
+    <mahout.version>0.5</mahout.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+
+    <!-- Mahout -->
+    <dependency>
+      <groupId>org.apache.mahout</groupId>
+      <artifactId>mahout-core</artifactId>
+      <version>${mahout.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.mahout</groupId>
+      <artifactId>mahout-math</artifactId>
+      <version>${mahout.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.mahout</groupId>
+      <artifactId>mahout-utils</artifactId>
+      <version>${mahout.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>slf4j-jcl</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- RSS解析 -->
+    <dependency>
+      <groupId>rome</groupId>
+      <artifactId>rome</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <!-- 形態素解析器 -->
+    <dependency>
+      <groupId>jp.sourceforge.igo</groupId>
+      <artifactId>igo</artifactId>
+      <version>0.4.3</version>
+    </dependency>
+
+    <!-- HTMLスクレイパー -->
+    <dependency>
+      <groupId>jaxen</groupId>
+      <artifactId>jaxen-jericho</artifactId>
+      <version>1.1.1.1</version>
+    </dependency>
+
+    <!-- DBアクセス -->
+    <dependency>
+      <groupId>org.scalaquery</groupId>
+      <artifactId>scalaquery_2.9.0-1</artifactId>
+      <version>0.9.5</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.16</version>
+    </dependency>
+
+    <!-- JodaTime -->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.joda</groupId>
+      <artifactId>joda-convert</artifactId>
+      <version>1.1</version>
+    </dependency>
+
+    <!-- ロギング -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>99.0-does-not-exist</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.scala-tools</groupId>
+        <artifactId>maven-scala-plugin</artifactId>
+        <version>2.15.2</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+            <phase>compile</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>ScalaToolsReleaseRepository</id>
+      <name>Scala Tools Release Repository</name>
+      <url>http://scala-tools.org/repo-releases/</url>
+    </repository>
+    <repository>
+      <id>karatachi.org</id>
+      <name>Karatachi Maven2 Repository</name>
+      <url>http://repo.karatachi.org/mvn</url>
+    </repository>
+  </repositories>
+
+  <name>Karatachi Mahout Example</name>
+  <description />
+</project>
